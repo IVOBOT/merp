@@ -12,7 +12,6 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>MERP</title>
 
-
 </head>
 
 <body>
@@ -63,22 +62,28 @@ END;
 	<td width="100" align="center">$title</td>
 	<td width="100" align="center">$start</td>
 	<td width="100" align="center">$end</td>
-	<td width="100" align="center">$thumbnail</td>
+	<td width="100" align="center"><img width="100" src="/$id/$thumbnail"></td>
 	</tr><tr>
 	END;
 	}
+  $conn->close();
 
 ?>
 </tr></table>
 
 <p>
 
-<form action="/done.php?eventId=$ei" align="center">
+<form action="/done.php" align="center">
 
-  <label for="fname">Name:</label>
-  <input type="text" id="name" name="name"><br><br>
-  <label for="lname">Surname:</label>
-  <input type="text" id="surname" name="surname"><br><br>
+<?php
+  echo<<<END
+  <input type="hidden" id="eventId" name="eventId" value=$ei><br><br>
+  END;
+?>
+  <label for="name">Name:</label>
+  <input type="text" name="n"><br><br>
+  <label for="surname">Surname:</label>
+  <input type="text" name="s"><br><br>
   <input type="submit" value="Register!">
 
 </form>

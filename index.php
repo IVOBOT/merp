@@ -78,11 +78,12 @@ END;
 	<td width="100" align="center">$title</td>
 	<td width="100" align="center">$start</td>
 	<td width="100" align="center">$end</td>
-	<td width="100" align="center">$thumbnail</td>
+	<td width="100" align="center"><img width="100" src="/$id/$thumbnail"></td>
 	<td width="100" align="center"><a href="/register.php?eventId=$id"><button>Join!</button></a></td>
 	</tr><tr>
 	END;
 	}
+	$conn->close();
 
 ?>
 

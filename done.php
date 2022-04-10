@@ -1,7 +1,7 @@
 <?php
     // Retrieve the URL variables (using PHP).
-    $regName = $_GET['name'];
-    $regSurname = $_GET['surnname'];
+    $regName = $_GET['n'];
+    $regSurname = $_GET['s'];
     $eventId = $_GET['eventId'];
 ?>
 <?php
@@ -38,9 +38,15 @@ if ($conn->connect_error) {
 
 $regCode = rand(100000,999999);
 
-$sql = "INSERT INTO reservations (event_id, name, surname, code) VALUES ('$eventId','$regName', 'regSurname', '$regCode') "
+$sql = "INSERT INTO reservations VALUES (NULL, '$eventId','$regName', '$regSurname', '$regCode')";
 
-$result = mysqli_query($conn, "SELECT * FROM reservations WHERE code = $regCode ");
+if ($conn->query($sql) === TRUE) {
+  //echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$result = mysqli_query($conn, "SELECT * FROM reservations WHERE code=$regCode"); // WHERE to be added
 $n = mysqli_num_rows($result);
 
 if ($n>=1)
@@ -73,13 +79,13 @@ END;
 	</tr><tr>
 	END;
 	}
+  $conn->close();
 
 ?>
 </tr></table>
-
 <p>
-
-  <a href="/index.php"><button align="center">Go back to events!</button></a>
-
+<div align="center">
+  <a href="/index.php"><button>Go back to events!</button></a>
+</div>
 </body>
 </html>
