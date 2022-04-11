@@ -14,6 +14,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>MERP</title>
 
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -52,8 +53,7 @@ $n = mysqli_num_rows($result);
 if ($n>=1)
 {
 echo<<<END
-<td width="50" align="center" bgcolor="e5e5e5">id</td>
-<td width="100" align="center" bgcolor="e5e5e5">eventId</td>
+<td width="100" align="center" bgcolor="e5e5e5">Event Id</td>
 <td width="100" align="center" bgcolor="e5e5e5">Name</td>
 <td width="100" align="center" bgcolor="e5e5e5">Surname</td>
 <td width="100" align="center" bgcolor="e5e5e5">Code</td>
@@ -71,11 +71,10 @@ END;
 		$cd = $row['code'];
 
 	echo<<<END
-	<td width="50" align="center">$id</td>
 	<td width="100" align="center">$ei</td>
 	<td width="100" align="center">$na</td>
 	<td width="100" align="center">$sn</td>
-	<td width="100" align="center">$cd</td>
+	<td width="100" align="center"><b>$cd</b></td>
 	</tr><tr>
 	END;
 	}

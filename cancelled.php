@@ -12,6 +12,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>MERP</title>
 </head>
+<link rel="stylesheet" href="style.css">
 
 <body>
 <?php
@@ -34,7 +35,7 @@ $sql = "DELETE FROM reservations WHERE id=$regId";
 
 if ($conn->query($sql) === TRUE) {
   echo<<<END
-  <div align="center">Registration cancelled successfully!</śdiv>
+  <div align="center"><b><h3>Registration cancelled successfully!</h3></b></div>
   END;
 } else {
   echo "Error deleting record: " . $conn->error;

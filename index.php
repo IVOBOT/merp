@@ -11,6 +11,9 @@
 
 </head>
 
+<link rel="stylesheet" href="style.css">
+
+
 <body>
 
 <table width="900" align="center" border="1" bordercolor="#d5d5d5" cellpadding="0" cellspacing="0">
@@ -54,12 +57,11 @@ $n = mysqli_num_rows($result);
 if ($n>=1)
 {
 echo<<<END
-<td width="50" align="center" bgcolor="e5e5e5">id</td>
-<td width="100" align="center" bgcolor="e5e5e5">title</td>
-<td width="100" align="center" bgcolor="e5e5e5">start</td>
-<td width="100" align="center" bgcolor="e5e5e5">end</td>
-<td width="100" align="center" bgcolor="e5e5e5">thumbnail</td>
-<td width="100" align="center" bgcolor="e5e5e5">register</td>
+<td width="100" align="center" bgcolor="e5e5e5">Title</td>
+<td width="100" align="center" bgcolor="e5e5e5">Start date</td>
+<td width="100" align="center" bgcolor="e5e5e5">End date</td>
+<td width="100" align="center" bgcolor="e5e5e5">Thumbnail</td>
+<td width="100" align="center" bgcolor="e5e5e5"></td>
 </tr><tr>
 END;
 }
@@ -74,12 +76,11 @@ END;
 		$thumbnail = $row['thumbnail'];
 
 	echo<<<END
-	<td width="50" align="center">$id</td>
 	<td width="100" align="center">$title</td>
 	<td width="100" align="center">$start</td>
 	<td width="100" align="center">$end</td>
 	<td width="100" align="center"><img width="100" src="/$id/$thumbnail"></td>
-	<td width="100" align="center"><a href="/register.php?eventId=$id"><button>Join!</button></a></td>
+	<td width="100" align="center"><a href="/register.php?eventId=$id"><button>Register!</button></a></td>
 	</tr><tr>
 	END;
 	}
@@ -89,10 +90,12 @@ END;
 </tr></table>
 <p>
 <div align="center">
+	<h3>Manage your registration here:</h3>
+	<p>
 	<form action="/manage.php">
 		<label for="surname">Code:</label>
 		<input type="text" name="c"><br><br>
-		<input type="submit" value="Change registration!">
+		<input type="submit" value="Manage registration!">
 	</form>
 </div>
 

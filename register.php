@@ -12,6 +12,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>MERP</title>
 
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -39,11 +41,10 @@ $n = mysqli_num_rows($result);
 if ($n>=1)
 {
 echo<<<END
-<td width="50" align="center" bgcolor="e5e5e5">id</td>
-<td width="100" align="center" bgcolor="e5e5e5">title</td>
-<td width="100" align="center" bgcolor="e5e5e5">start</td>
-<td width="100" align="center" bgcolor="e5e5e5">end</td>
-<td width="100" align="center" bgcolor="e5e5e5">thumbnail</td>
+<td width="100" align="center" bgcolor="e5e5e5">Title</td>
+<td width="100" align="center" bgcolor="e5e5e5">Start date</td>
+<td width="100" align="center" bgcolor="e5e5e5">End date</td>
+<td width="100" align="center" bgcolor="e5e5e5">Thumbnail</td>
 </tr><tr>
 END;
 }
@@ -58,7 +59,6 @@ END;
 		$thumbnail = $row['thumbnail'];
 
 	echo<<<END
-	<td width="50" align="center">$id</td>
 	<td width="100" align="center">$title</td>
 	<td width="100" align="center">$start</td>
 	<td width="100" align="center">$end</td>
@@ -72,10 +72,10 @@ END;
 </tr></table>
 
 <form action="/done.php" align="center">
-
+  <h3>Put your registration data here:</h3>
 <?php
   echo<<<END
-  <input type="hidden" id="eventId" name="eventId" value=$ei><br><br>
+  <input type="hidden" id="eventId" name="eventId" value=$ei>
   END;
 ?>
   <label for="name">Name:</label>
