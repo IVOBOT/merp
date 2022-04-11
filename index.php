@@ -89,7 +89,7 @@ END;
 </tr></table>
 <p>
 <div align="center">
-	<form action="/cancel.php">
+	<form action="/manage.php">
 		<label for="surname">Code:</label>
 		<input type="text" name="c"><br><br>
 		<input type="submit" value="Change registration!">

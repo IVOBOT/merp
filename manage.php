@@ -10,14 +10,13 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>MERP</title>
-
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<table width="900" align="center" border="1" bordercolor="#d5d5d5" cellpadding="0" cellspacing="0">
-<tr>
+
 <?php
 
 $servername = "localhost";
@@ -39,6 +38,8 @@ $n = mysqli_num_rows($result);
 if ($n>=1)
 {
 echo<<<END
+<table width="900" align="center" border="1" bordercolor="#d5d5d5" cellpadding="0" cellspacing="0">
+<tr>
 <td width="50" align="center" bgcolor="e5e5e5">id</td>
 <td width="100" align="center" bgcolor="e5e5e5">eventId</td>
 <td width="100" align="center" bgcolor="e5e5e5">Name</td>
@@ -47,6 +48,11 @@ echo<<<END
 <td width="100" align="center" bgcolor="e5e5e5">Action</td>
 </tr><tr>
 END;
+}
+else {
+  echo<<<END
+  <div align="center">Wrong code!</div>
+  END;
 }
 	for ($i = 1; $i <= $n; $i++)
 	{
@@ -67,9 +73,8 @@ END;
           $regEventEnd = $row["end"];
           $regEventThumbnail = $row["thumbnail"];
           $formattedStart = strtotime($regEventStart);
+          $formattedEnd - strtotime($regEventEnd);
       }
-  } else {
-      //echo "0 results";
   }
 	echo<<<END
 	<td width="50" align="center">$id</td>
@@ -87,9 +92,10 @@ END;
 <script>
 
 var now = Math.floor( Date.now() / 1000 );
-var eventTime = <?php echo $formattedStart ?>
+var eventTime = <?php echo $formattedStart ?>;
+var eventEnd = <?php echo $formattedEnd ?>;
 
-if(((eventTime - now)/(3600*24))<2){document.getElementById('cancel').setAttribute('disabled','')}</script>
+if(((eventTime - now)/(3600*24))<2 || (eventEnd-eventTime)/(3600*24)>2){document.getElementById('cancel').setAttribute('disabled','')}</script>
 
 </tr></table>
 <p>
