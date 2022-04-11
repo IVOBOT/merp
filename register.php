@@ -71,8 +71,6 @@ END;
 ?>
 </tr></table>
 
-<p>
-
 <form action="/done.php" align="center">
 
 <?php

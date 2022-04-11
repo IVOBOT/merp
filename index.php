@@ -86,8 +86,15 @@ END;
 	$conn->close();
 
 ?>
-
-
 </tr></table>
+<p>
+<div align="center">
+	<form action="/cancel.php">
+		<label for="surname">Code:</label>
+		<input type="text" name="c"><br><br>
+		<input type="submit" value="Change registration!">
+	</form>
+</div>
+
 </body>
 </html>
