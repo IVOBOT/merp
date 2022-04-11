@@ -72,7 +72,7 @@ else {
           $regEventEnd = $row["end"];
           $regEventThumbnail = $row["thumbnail"];
           $formattedStart = strtotime($regEventStart);
-          $formattedEnd - strtotime($regEventEnd);
+          $formattedEnd = strtotime($regEventEnd);
       }
   }
 	echo<<<END
@@ -82,18 +82,26 @@ else {
 	</tr><tr>
 	END;//Do not touch html directly above as some of the tags are somehow vulnerable to tabs and enters (?)
   }
-
   $conn->close();
 
 ?>
+<p id="demo">
 
+</p>
 <script>
 
 var now = Math.floor( Date.now() / 1000 );
 var eventTime = <?php echo $formattedStart ?>;
 var eventEnd = <?php echo $formattedEnd ?>;
 
-if(((eventTime - now)/(3600*24))<2 || (eventEnd-eventTime)/(3600*24)>2){document.getElementById('cancel').setAttribute('disabled','')}</script>
+document.getElementById("demo").innerHTML = (eventEnd-eventTime)/(3600*24);
+
+if(((eventTime - now)/(3600*24))<2 || (eventEnd-eventTime)/(3600*24)>2)
+{
+  document.getElementById('cancel').setAttribute('disabled','');
+}
+
+</script>
 
 </tr></table>
 <p>

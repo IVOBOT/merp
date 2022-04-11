@@ -39,7 +39,7 @@ if ($conn->connect_error) {
 
 $regCode = rand(100000,999999);
 
-$sql = "INSERT INTO reservations VALUES (NULL, '$eventId','$regName', '$regSurname', '$regCode')";
+$sql = "INSERT INTO reservations (event_id,name,surname,code) VALUES ('$eventId','$regName', '$regSurname', '$regCode')";
 
 if ($conn->query($sql) === TRUE) {
   //echo "New record created successfully";
@@ -71,10 +71,10 @@ END;
 		$cd = $row['code'];
 
 	echo<<<END
-	<td width="100" align="center">$ei</td>
-	<td width="100" align="center">$na</td>
-	<td width="100" align="center">$sn</td>
-	<td width="100" align="center"><b>$cd</b></td>
+	<td width="100" height="50" align="center">$ei</td>
+	<td width="100" height="50" align="center">$na</td>
+	<td width="100" height="50" align="center">$sn</td>
+	<td width="100" height="50" align="center"><b>$cd</b></td>
 	</tr><tr>
 	END;
 	}
